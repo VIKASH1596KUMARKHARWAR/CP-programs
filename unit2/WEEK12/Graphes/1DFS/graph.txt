@@ -1,0 +1,18 @@
+total degree of  a undirected graph is 2 * e
+cyclic/acyclic/undirected/directed
+
+
+for directed graphs,degree of a vertex = incomming edges
+for undirected, degree of a vertex is total edges passes to that vetex
+
+
+-- adjacency matrix
+for 1-based indexing of adjacency matrix --> define it by n+1 vertex 
+corresponding to that put 1  and for other put 0
+
+--adjacency list
+ 
+
+adjacency list -- in cpp its just vector
+ 0(2e)-->to store the graph 
+ 

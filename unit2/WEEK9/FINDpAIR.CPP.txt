@@ -1,0 +1,56 @@
+#include <vector>
+#include <unordered_set>
+using namespace std;
+
+class BinaryTreeNode {
+public:
+    int data;
+    BinaryTreeNode *left, *right;
+    BinaryTreeNode() : data(0), left(nullptr), right(nullptr) {}
+    BinaryTreeNode(int x) : data(x), left(nullptr), right(nullptr) {}
+    BinaryTreeNode(int x, BinaryTreeNode *left, BinaryTreeNode *right) : data(x), left(left), right(right) {}
+};
+
+void findPair(BinaryTreeNode *root, int k, unordered_set<int> &s, vector<pair<int, int>> &pairs) {
+    if (root == nullptr) return;
+    
+    int complement = k - root->data;
+    
+    if (s.find(complement) != s.end()) {
+        pairs.push_back(make_pair(root->data, complement));
+    }
+    
+    s.insert(root->data);
+    
+    findPair(root->left, k, s, pairs);
+    findPair(root->right, k, s, pairs);
+}
+
+vector<pair<int, int>> pairSumBst(BinaryTreeNode *root, int k) {
+    unordered_set<int> s;
+    vector<pair<int, int>> pairs;
+    findPair(root, k, s, pairs);
+    return pairs;
+}
+
+// Example usage:
+int main() {
+    BinaryTreeNode* root = new BinaryTreeNode(5);
+    root->left = new BinaryTreeNode(3);
+    root->right = new BinaryTreeNode(8);
+    root->left->left = new BinaryTreeNode(2);
+    root->left->right = new BinaryTreeNode(4);
+    root->right->left = new BinaryTreeNode(7);
+    root->right->right = new BinaryTreeNode(9);
+
+    int targetSum = 10;
+    vector<pair<int, int>> result = pairSumBst(root, targetSum);
+
+    for (auto pair : result) {
+        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    }
+
+    // Clean up memory (not shown in the example for brevity)
+    
+    return 0;
+}

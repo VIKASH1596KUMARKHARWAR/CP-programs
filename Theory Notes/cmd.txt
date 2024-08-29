@@ -1,0 +1,5 @@
+Using the alternative of ls ===> dir
+And getting list of our files, we will now compile using g++ filename.cpp
+this will create the a.exe file
+we want ot store the output in a file  g++ foundation -o fd
+this will create an .exe file which will be an executable file, and to get outpot stored in it ude fd only ( executable file name  window // for Linux ./fd )
