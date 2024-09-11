@@ -1,5 +1,8 @@
-#include <iostream>
+//similar too  level ordr traversal in tree
+
+
 #include <queue>
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9,7 +12,7 @@ private:
         void bfs(int start, vector<vector<int>> &adjMatrix, vector<bool> &vis, vector<int> &ls) {
         queue<int> q;
         q.push(start);
-        vis[start] = true;
+        vis[start] = true;//visited ko while loop k bahar rahkhenge bahar rakhnege  
         
         while (!q.empty()) {
             int curr = q.front();
